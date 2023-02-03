@@ -39,7 +39,7 @@ button.addEventListener('click', () => {
       clearInterval(timerId);
       return;
     }
-    timeLeft = convertMs(diffMs);
+    const timeLeft = convertMs(diffMs);
     secondsEl.textContent = addLeadingZero(timeLeft.seconds);
     minutesEl.textContent = addLeadingZero(timeLeft.minutes);
     hoursEl.textContent = addLeadingZero(timeLeft.hours);
