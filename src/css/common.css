@@ -16,3 +16,30 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 15;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgb(203, 36, 125);
+  box-shadow: 10px 5px 5px rgb(102, 202, 99);
+  height: 110px;
+  width: 90px;
+}
+.value {
+  font-size: 50px;
+  font-weight: 800;
+  color: rgb(102, 202, 99);
+}
+
+.label {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgb(244, 249, 243);
+}
