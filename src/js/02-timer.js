@@ -10,15 +10,14 @@ const minutesEl = document.querySelector('[data-minutes]');
 const secondsEl = document.querySelector('[data-seconds]');
 
 let diffMs = 0;
-
 button.disabled = true;
-
 const options = {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
+    button.disabled = true;
     if (selectedDates[0] < new Date()) {
       Notiflix.Notify.failure('Please choose a date in the future');
       return;
@@ -37,6 +36,7 @@ button.addEventListener('click', () => {
     diffMs = diffMs - 1000;
     if (diffMs <= 0) {
       clearInterval(timerId);
+
       return;
     }
     const timeLeft = convertMs(diffMs);
