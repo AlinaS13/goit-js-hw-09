@@ -7,13 +7,20 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
+function changeBodyColor() {
+  const colorResult = getRandomHexColor();
+  document.body.style.background = colorResult;
+}
+
 stopBtn.disabled = true;
 startBtn.addEventListener('click', () => {
+  stopBtn.disabled = false;
+  startBtn.disabled = true;
+
+  changeBodyColor();
+
   timerId = setInterval(() => {
-    stopBtn.disabled = false;
-    startBtn.disabled = true;
-    const colorResult = getRandomHexColor();
-    document.body.style.background = colorResult;
+    changeBodyColor();
   }, 1000);
 });
 
