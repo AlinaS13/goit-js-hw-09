@@ -9,7 +9,7 @@ const hoursEl = document.querySelector('[data-hours]');
 const minutesEl = document.querySelector('[data-minutes]');
 const secondsEl = document.querySelector('[data-seconds]');
 
-let diffMs = 0;
+let selectedDateMs = 0;
 button.disabled = true;
 const options = {
   enableTime: true,
@@ -23,15 +23,17 @@ const options = {
       return;
     }
     button.disabled = false;
-    diffMs = selectedDates[0].getTime() - Date.now();
+    selectedDateMs = selectedDates[0].getTime();
   },
 };
+
 flatpickr(input, options);
 
 let timerId = 0;
 button.addEventListener('click', () => {
   input.disabled = true;
   button.disabled = true;
+  let diffMs = selectedDateMs - Date.now();
   timerId = setInterval(() => {
     diffMs = diffMs - 1000;
     if (diffMs <= 0) {
